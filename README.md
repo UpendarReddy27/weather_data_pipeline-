@@ -27,23 +27,6 @@ Flow summary (matches the diagram):
 
 ![Architecture](architecture_diagram.png)
 
-### Architecture diagram (Mermaid — editable in this file)
-
-```mermaid
-flowchart LR
-    EB[EventBridge hourly] --> Extract[Lambda Extract]
-    OM[Open-Meteo API] -.->|forecast JSON| Extract
-    Extract --> S3Raw[S3 raw_data]
-    S3Raw --> Transform[Lambda Transform]
-    Transform --> S3Csv[S3 transformed_data]
-    S3Csv --> Notify[S3 events to Snowpipe]
-    Notify --> Pipe[Snowpipe]
-    Pipe --> RawTbl[(weather_raw_data)]
-    RawTbl --> Task[Snowflake task]
-    Task --> Hourly[(weather_hourly)]
-    Hourly --> View[v_daily_summary]
-```
-
 ---
 
 ## Tech stack
