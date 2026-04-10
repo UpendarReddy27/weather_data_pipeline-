@@ -13,7 +13,7 @@ skip_header = 1
 ;
 CREATE OR REPLACE STAGE s3_weather_data
     URL = 's3://weather-data-pipeline-v1/transformed_data/'
-    CREDENTIALS = (AWS_KEY_ID='AKIA4ER33CQPY4AMXB77'           AWS_SECRET_KEY='k6iFAxtwBskPlBb+6M/PJaYcGo1qalL5t/TMSuNG')
+    CREDENTIALS = (AWS_KEY_ID='access key'           AWS_SECRET_KEY='secret key')
     FILE_FORMAT = csv_weather_format;
 
 LIST @s3_weather_data;
